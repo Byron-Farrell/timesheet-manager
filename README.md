@@ -13,7 +13,16 @@ sudo apt-get install curl
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt install nodejs
 ```
-### Backend Setup
+### Database Setup
+
+Create /data/db file if it does not already exist
+
+run:
+```
+mongod
+```
+
+### Backend Code Setup
 ```
 cd backend
 npm install
