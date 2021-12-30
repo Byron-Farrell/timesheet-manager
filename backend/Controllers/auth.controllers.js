@@ -12,32 +12,29 @@ function register(request, response) {
         if (error) {
             // TODO: Add to logs
             response.status(400);
-            response.json({
+            return response.json({
                 success: false,
                 errorMessage: 'Database failure'
             });
-            return;
-
         }
 
         if (user == null) {
             response.status(409);
-            response.json({
+            return response.json({
                 success: false,
                 errorMessage: 'Username already exists'
             });
-            return;
         }
         else {
             bcrypt.hash(response.body.password, 10, function(error, hash) {
                 if (error) {
                     // TODO: Add to logs
                     response.status(400);
-                    response.json({
+                    return response.json({
                         success: false,
                         errorMessage: 'Failed to create new user'
                     });
-                    return;
+                    
                 }
         
                 newUser = new User({
@@ -52,11 +49,11 @@ function register(request, response) {
                     if (error) {
                         // TODO: Add to logs
                         response.status(400);
-                        response.json({
+                        return response.json({
                             success: false,
                             errorMessage: 'Failed to create new user'
                         });
-                        return;
+                        
                     }
 
                     response(200);

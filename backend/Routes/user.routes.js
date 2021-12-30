@@ -1,15 +1,37 @@
 const express = require('express');
 
 const userController = require('../Controllers/user.controllers.js');
+const baseController = require('../Controllers/base.controllers.js');
 
 const router = express.Router();
 
-router.get('/user', userController.getUser);
+router.get('/user', [
+    baseController.checkHeaders, 
+    baseController.jsonConentTypeCheck,
+    userController.isUsernameInRequestBody,
+    userController.getUser
+]);
 
-router.post('/user', userController.postUser);
+router.post('/user', [
+    baseController.checkHeaders, 
+    baseController.jsonConentTypeCheck,
+    userController.isUsernameInRequestBody,
+    userController.postUser
+]);
 
-router.put('/user', userController.putUser);
+router.put('/user', [
+    baseController.checkHeaders, 
+    baseController.jsonConentTypeCheck,
+    userController.isUsernameInRequestBody,
+    userController.doesUserExist,
+    userController.putUser
+]);
 
-router.delete('/user', userController.deleteUser);
+router.delete('/user', [
+    baseController.checkHeaders, 
+    baseController.jsonConentTypeCheck,
+    userController.isUsernameInRequestBody,
+    userController.deleteUser
+]);
 
 module.exports = router;
