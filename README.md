@@ -18,7 +18,7 @@ Create /data/db file if it does not already exist
 
 run:
 ```
-mongod
+sudo mongod
 ```
 
 ### Backend Code Setup
