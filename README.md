@@ -16,7 +16,7 @@ sudo apt install nodejs
 
 Create /data/db file if it does not already exist
 
-run:
+run in a new terminal:
 ```
 sudo mongod
 ```
@@ -25,4 +25,10 @@ sudo mongod
 ```
 cd backend
 npm install
+```
+
+### Run backend cede linter
+```
+cd backend
+npm run lint
 ```
