@@ -12,26 +12,59 @@ sudo apt-get install curl
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt install nodejs
 ```
+
+### .env file configuration
+WIP
+
 ### Database Setup
 
 Create /data/db file if it does not already exist
+
+Check if folder exists:
+
+```
+cd /data/db
+```
+
+If the folder does not exists. Then create a new folder:
+
+```
+sudo mkdir /data/db
+```
 
 run in a new terminal:
 ```
 sudo mongod
 ```
 
-### Backend Code Setup
+### Install Javascript libraries
+
 ```
 cd backend
 npm install
 ```
 
-### Run backend code linter
+### Run the application 
+
+```
+cd backend
+npm run start
+```
+
+
+## Linter
+
+### Run eslint
 ```
 cd backend
 npm run lint
 ```
 
-### .env file configuration
-WIP
+## Testing
+
+### Run tests
+
+```
+cd backend
+npm run tests
+```
