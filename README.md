@@ -27,8 +27,11 @@ cd backend
 npm install
 ```
 
-### Run backend cede linter
+### Run backend code linter
 ```
 cd backend
 npm run lint
 ```
+
+### .env file configuration
+WIP
