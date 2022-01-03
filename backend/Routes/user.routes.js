@@ -1,37 +1,37 @@
 const express = require('express');
 
-const userController = require('../Controllers/user.controllers.js');
-const baseController = require('../Controllers/base.controllers.js');
+const userController = require('../Controllers/user.controllers');
+const baseMiddleware = require('../Middleware/base.middleware');
+const userMiddleware = require('../Middleware/user.middleware');
 
 const router = express.Router();
 
 router.get('/user', [
-    baseController.checkHeaders, 
-    baseController.jsonConentTypeCheck,
-    userController.isUsernameInRequestBody,
-    userController.getUser
+  baseMiddleware.checkHeaders,
+  baseMiddleware.jsonConentTypeCheck,
+  userMiddleware.isUsernameInRequestBody,
+  userController.getUser,
 ]);
 
 router.post('/user', [
-    baseController.checkHeaders, 
-    baseController.jsonConentTypeCheck,
-    userController.isUsernameInRequestBody,
-    userController.postUser
+  baseMiddleware.checkHeaders,
+  baseMiddleware.jsonConentTypeCheck,
+  userMiddleware.isUsernameInRequestBody,
+  userController.postUser,
 ]);
 
 router.put('/user', [
-    baseController.checkHeaders, 
-    baseController.jsonConentTypeCheck,
-    userController.isUsernameInRequestBody,
-    userController.doesUserExist,
-    userController.putUser
+  baseMiddleware.checkHeaders,
+  baseMiddleware.jsonConentTypeCheck,
+  userMiddleware.isUsernameInRequestBody,
+  userController.putUser,
 ]);
 
 router.delete('/user', [
-    baseController.checkHeaders, 
-    baseController.jsonConentTypeCheck,
-    userController.isUsernameInRequestBody,
-    userController.deleteUser
+  baseMiddleware.checkHeaders,
+  baseMiddleware.jsonConentTypeCheck,
+  userMiddleware.isUsernameInRequestBody,
+  userController.deleteUser,
 ]);
 
 module.exports = router;

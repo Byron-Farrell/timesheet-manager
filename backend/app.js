@@ -7,7 +7,6 @@ const config = require('./Config/settings');
 const routes = require('./Routes/index.routes');
 
 const app = express();
-const port = 3000; // TODO put in env file or default to 3000
 
 databaseSetup();
 
@@ -16,7 +15,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', routes);
 
-app.listen(port, () => {
-    console.log(`Listening on http://localhost:${port}`);
+
+app.listen(config.PORT, () => {
+    console.log(`Listening on http://localhost:${config.PORT}`);
 });
 
